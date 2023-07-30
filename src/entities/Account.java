@@ -2,8 +2,8 @@ package entities;
 
 public class Account {
 
-    protected int number;
-    private String holder;
+    private int number;
+    public String holder;
     private double balance;
 
     public Account() {
@@ -21,12 +21,24 @@ public class Account {
         balance = 0;
     }
 
-    public String getName() {
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getHolder() {
         return holder;
     }
 
-    public void setName(String holder) {
+    public void setHolder(String holder) {
         this.holder = holder;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 
     public void deposit(double amount) {
@@ -35,5 +47,14 @@ public class Account {
 
     public void withdraw(double amount) {
         this.balance -= amount;
+    }
+
+    public String toString() {
+        return "Account: "
+            + getNumber()
+            + ", Holder: "
+            + getHolder()
+            + ", Balance: $ "
+            + String.format("%.2f", getBalance());
     }
 }
