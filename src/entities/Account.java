@@ -6,19 +6,15 @@ public class Account {
     private String holder;
     private double balance;
 
-    public Account() {
-    }
-
-    public Account(int number, String holder, double balance) {
+    public Account(int number, String holder, double initialDeposit) {
         this.number = number;
         this.holder = holder;
-        this.balance = balance;
+        deposit(initialDeposit);
     }
 
     public Account(int number, String holder) {
         this.number = number;
         this.holder = holder;
-        balance = 0;
     }
 
     public int getNumber() {
@@ -51,10 +47,10 @@ public class Account {
 
     public String toString() {
         return "Account: "
-            + getNumber()
-            + ", Holder: "
-            + getHolder()
-            + ", Balance: $ "
-            + String.format("%.2f", getBalance());
+                + number
+                + ", Holder: "
+                + holder
+                + ", Balance: $ "
+                + String.format("%.2f", balance);
     }
 }
