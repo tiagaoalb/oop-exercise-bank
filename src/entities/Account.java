@@ -3,7 +3,7 @@ package entities;
 public class Account {
 
     private int number;
-    public String holder;
+    private String holder;
     private double balance;
 
     public Account() {
@@ -46,7 +46,7 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-        this.balance -= amount;
+        this.balance -= amount + 5.0;
     }
 
     public String toString() {
