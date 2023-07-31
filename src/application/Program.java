@@ -16,8 +16,16 @@ public class Program {
         System.out.print("Enter account name: ");
         account.setHolder(sc.next());
 
-        System.out.print("Is there an initial deposit (y/n)?");
-        String answerInput = sc.next();
+        String answerInput;
+
+        do {
+            System.out.print("Is there an initial deposit (y/n)? ");
+            answerInput = sc.next();
+
+            if (!(answerInput.equals("n") || answerInput.equals("y"))) {
+                System.out.println("Answer must be 'n' or 'y'. Please try again.");
+            }
+        } while (!(answerInput.equals("n") || answerInput.equals("y")));
 
         if (answerInput.equals("n")) {
             account.deposit(0);
@@ -28,6 +36,19 @@ public class Program {
 
         System.out.println("Account data:");
         System.out.println(account);
+        System.out.println();
+
+        System.out.print("Enter a deposit value: ");
+        account.deposit(sc.nextDouble());
+
+        System.out.printf("Updated account data: %n" + account);
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Enter a withdraw value: ");
+        account.withdraw(sc.nextDouble());
+
+        System.out.printf("Updated account data: %n" + account);
 
         sc.close();
     }
